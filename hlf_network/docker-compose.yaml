@@ -394,3 +394,22 @@ services:
         - 9998:9998
     networks:
         - fabric-ca
+
+  cli:
+    container_name: cli
+    image: sitapseacr.azurecr.io/hlf/fabrictools:2.3.bft
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - FABRIC_CFG_PATH=/etc/hyperledger/config
+
+      # LOGGING SETTINGS
+      #- FABRIC_LOGGING_SPEC=${DOCKER_DEBUG}
+
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - /tmp/hyperledger/config:/etc/hyperledger/config/
+    networks:
+        - fabric-ca

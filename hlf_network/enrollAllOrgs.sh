@@ -158,8 +158,8 @@ cp /tmp/hyperledger/org2/peer1/assets/tls-ca/tls-ca-cert.pem /tmp/hyperledger/or
 cp /tmp/hyperledger/org2/admin/msp/signcerts/cert.pem /tmp/hyperledger/org2/msp/admincerts/admin-org2-cert.pem
 cp ./org2-config.yaml /tmp/hyperledger/org2/msp/config.yaml
 cp ./org2-config.yaml /tmp/hyperledger/org2/orderer1/msp/config.yaml
-
-echo "Enroll Org3"
+#######
+echo "Enroll org3"
 
 echo "*** Enroll peer1-org3"
 
@@ -184,12 +184,11 @@ sleep 5
 
 cp /tmp/hyperledger/org3/peer1/tls-msp/keystore/*_sk /tmp/hyperledger/org3/peer1/tls-msp/keystore/key.pem
 
-
 echo "### Enroll orderer1-org3"
 
 # preparation
 mkdir -p /tmp/hyperledger/org3/orderer1/assets/ca 
-cp /tmp/hyperledger/org3/ca/admin/msp/cacerts/0-0-0-0-7056.pem /tmp/hyperledger/org3/orderer1/assets/ca/org-ca-cert.pem
+cp /tmp/hyperledger/org3/ca/admin/msp/cacerts/0-0-0-0-7056.pem /tmp/hyperledger/org3/orderer1/assets/ca/org3-ca-cert.pem
 
 mkdir -p /tmp/hyperledger/org3/orderer1/assets/tls-ca 
 cp /tmp/hyperledger/tls-ca/admin/msp/cacerts/0-0-0-0-7052.pem /tmp/hyperledger/org3/orderer1/assets/tls-ca/tls-ca-cert.pem
