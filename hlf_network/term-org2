@@ -1,0 +1,18 @@
+export HOME=/Users/arnaud/BlockChain
+export PATH=$PATH:${HOME}/fabric-samples/bin
+export FABRIC_CFG_PATH=${HOME}/fabric-samples/config/
+export ORDERER_CA=/tmp/hyperledger/org2/orderer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem
+
+export CHANNEL_NAME=channel1
+export CHANNEL_PROFILE=SampleAppChannelEtcdRaft
+
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID="org2MSP"
+export CORE_PEER_TLS_ROOTCERT_FILE=/tmp/hyperledger/org2/peer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem
+export CORE_PEER_MSPCONFIGPATH=/tmp/hyperledger/org2/admin/msp
+export CORE_PEER_ADDRESS=localhost:8051
+
+export CORE_ORDERER_ADDRESS=localhost:8080
+export ORDERER=localhost:8050
+export ADMIN_TLS_CERTFILE=/tmp/hyperledger/org2/admin/tls-msp/signcerts/cert.pem
+export ADMIN_TLS_KEYFILE=/tmp/hyperledger/org2/admin/tls-msp/keystore/key.pem
