@@ -197,9 +197,9 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
 
     # Orderer Type: The orderer implementation to start
-    OrdererType: etcdraft
+    OrdererType: hlmirbft
 
-    EtcdRaft:
+    MirBFT:
         Consenters:
         - Host: orderer1-org1
           Port: 7050
@@ -209,6 +209,10 @@ Orderer: &OrdererDefaults
           Port: 7050
           ClientTLSCert: /tmp/hyperledger/org2/orderer1/tls-msp/signcerts/cert.pem
           ServerTLSCert: /tmp/hyperledger/org2/orderer1/tls-msp/signcerts/cert.pem
+        - Host: orderer1-org3
+          Port: 7050
+          ClientTLSCert: /tmp/hyperledger/org3/orderer1/tls-msp/signcerts/cert.pem
+          ServerTLSCert: /tmp/hyperledger/org3/orderer1/tls-msp/signcerts/cert.pem
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s

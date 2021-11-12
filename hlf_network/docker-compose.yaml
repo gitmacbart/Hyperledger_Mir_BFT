@@ -75,7 +75,7 @@ services:
     ports:
         - 7056:7056
 
-  couchdb0:
+  couchdb1:
     container_name: couchdb1
     image: couchdb:3.1.1
     labels:
@@ -94,7 +94,7 @@ services:
 
   peer1-org1:
     container_name: peer1-org1
-    image: hyperledger/fabric-peer:2.3
+    image: harrymknight/fabric-peer:latest
     environment:
         - CORE_PEER_ID=peer1-org1
         - CORE_PEER_ADDRESS=peer1-org1:7051
@@ -136,7 +136,7 @@ services:
     networks:
         - fabric-ca
 
-  couchdb1:
+  couchdb2:
     container_name: couchdb2
     image: couchdb:3.1.1
     labels:
@@ -155,7 +155,7 @@ services:
 
   peer1-org2:
     container_name: peer1-org2
-    image: hyperledger/fabric-peer:2.3
+    image: harrymknight/fabric-peer:latest
     environment:
         - CORE_PEER_ID=peer1-org2
         - CORE_PEER_ADDRESS=peer1-org2:8051
@@ -217,7 +217,7 @@ services:
 
   peer1-org3:
     container_name: peer1-org3
-    image: hyperledger/fabric-peer:2.3
+    image: harrymknight/fabric-peer:latest
     environment:
         - CORE_PEER_ID=peer1-org3
         - CORE_PEER_ADDRESS=peer1-org3:9051
@@ -262,7 +262,7 @@ services:
 
   orderer1-org1:
     container_name: orderer1-org1
-    image: hyperledger/fabric-orderer:2.3.2
+    image: harrymknight/fabric-orderer:latest
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org1
@@ -303,7 +303,7 @@ services:
 
   orderer1-org2:
     container_name: orderer1-org2
-    image: hyperledger/fabric-orderer:2.3.2
+    image: harrymknight/fabric-orderer:latest
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org2

@@ -45,11 +45,11 @@ echo "Working on RCA-ORG3"
 export FABRIC_CA_CLIENT_TLS_CERTFILES=/tmp/hyperledger/org3/ca/crypto/ca-cert.pem
 export FABRIC_CA_CLIENT_HOME=/tmp/hyperledger/org3/ca/admin
 
-fabric-ca-client enroll -d -u https://rca-org3-admin:rca-org3-adminpw@0.0.0.0:7055
+fabric-ca-client enroll -d -u https://rca-org3-admin:rca-org3-adminpw@0.0.0.0:7056
 sleep 5
 
-fabric-ca-client register -d --id.name peer1-org3 --id.secret peer1PW --id.type peer -u https://0.0.0.0:7055
-fabric-ca-client register -d --id.name orderer1-org3 --id.secret ordererpw --id.type orderer -u https://0.0.0.0:7055
-fabric-ca-client register -d --id.name admin-org3 --id.secret org3AdminPW --id.type admin -u https://0.0.0.0:7055
+fabric-ca-client register -d --id.name peer1-org3 --id.secret peer1PW --id.type peer -u https://0.0.0.0:7056
+fabric-ca-client register -d --id.name orderer1-org3 --id.secret ordererpw --id.type orderer -u https://0.0.0.0:7056
+fabric-ca-client register -d --id.name admin-org3 --id.secret org3AdminPW --id.type admin -u https://0.0.0.0:7056
 
 echo "All CA and registration done"
