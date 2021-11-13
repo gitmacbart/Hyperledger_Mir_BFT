@@ -3,8 +3,7 @@ export PATH=$PATH:${HOME}/fabric-samples/bin
 export FABRIC_CFG_PATH=${HOME}/fabric-samples/config/
 export ORDERER_CA=/tmp/hyperledger/org3/orderer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem
 
-export CHANNEL_NAME=channel1
-export CHANNEL_PROFILE=SampleAppChannelEtcdRaft
+
 
 export CORE_PEER_TLS_ENABLED=true
 export CORE_PEER_LOCALMSPID="org3MSP"

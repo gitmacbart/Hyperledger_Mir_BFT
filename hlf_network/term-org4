@@ -1,0 +1,12 @@
+export ORDERER_CA=/tmp/hyperledger/org4/orderer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem
+
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID="org4MSP"
+export CORE_PEER_TLS_ROOTCERT_FILE=/tmp/hyperledger/org4/peer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem
+export CORE_PEER_MSPCONFIGPATH=/tmp/hyperledger/org4/admin/msp
+export CORE_PEER_ADDRESS=localhost:10051
+
+export CORE_ORDERER_ADDRESS=localhost:10080
+export ORDERER=localhost:10050
+export ADMIN_TLS_CERTFILE=/tmp/hyperledger/org4/admin/tls-msp/signcerts/cert.pem
+export ADMIN_TLS_KEYFILE=/tmp/hyperledger/org4/admin/tls-msp/keystore/key.pem

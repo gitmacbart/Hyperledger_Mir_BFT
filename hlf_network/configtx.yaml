@@ -92,8 +92,85 @@ Organizations:
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
             - Host: peer1-org2
-              Port: 8051
+              Port: 7051
 
+    - &org3
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: org3MSP
+
+        # ID to load the MSP definition as
+        ID: org3MSP
+
+        MSPDir: /tmp/hyperledger/org3/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                # Rule: "OR('org1MSP.admin', 'org1MSP.peer', 'org1MSP.client')"
+                Rule: "OR('org3MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('org3MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('org3MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('org3MSP.peer')"
+
+        OrdererEndpoints:
+            - orderer1-org3:7050
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer1-org3
+              Port: 7051
+
+    - &org4
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: org4MSP
+
+        # ID to load the MSP definition as
+        ID: org4MSP
+
+        MSPDir: /tmp/hyperledger/org4/msp
+
+        # Policies defines the set of policies at this level of the config tree
+        # For organization policies, their canonical path is usually
+        #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+        Policies:
+            Readers:
+                Type: Signature
+                # Rule: "OR('org1MSP.admin', 'org1MSP.peer', 'org1MSP.client')"
+                Rule: "OR('org4MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('org4MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('org4MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('org4MSP.peer')"
+
+        OrdererEndpoints:
+            - orderer1-org4:7050
+
+        # leave this flag set to true.
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer1-org4
+              Port: 7051
 ################################################################################
 #
 #   SECTION: Capabilities
@@ -213,6 +290,10 @@ Orderer: &OrdererDefaults
           Port: 7050
           ClientTLSCert: /tmp/hyperledger/org3/orderer1/tls-msp/signcerts/cert.pem
           ServerTLSCert: /tmp/hyperledger/org3/orderer1/tls-msp/signcerts/cert.pem
+        - Host: orderer1-org4
+          Port: 7050
+          ClientTLSCert: /tmp/hyperledger/org4/orderer1/tls-msp/signcerts/cert.pem
+          ServerTLSCert: /tmp/hyperledger/org4/orderer1/tls-msp/signcerts/cert.pem
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s
@@ -304,6 +385,7 @@ Profiles:
             Organizations:
                 - *org1
                 - *org2
+                - *org3
             Capabilities:
                 <<: *OrdererCapabilities
         Consortiums:
@@ -322,13 +404,15 @@ Profiles:
             Capabilities:
                 <<: *ApplicationCapabilities
 
-    SampleAppChannelEtcdRaft:
+    SampleAppChannelMirBFT:
         <<: *ChannelDefaults
         Orderer:
             <<: *OrdererDefaults
             Organizations:
                 - *org1
                 - *org2
+                - *org3
+                - *org4
             Capabilities:
                 <<: *OrdererCapabilities
         Application:
@@ -336,5 +420,7 @@ Profiles:
             Organizations:
                 - *org1
                 - *org2
+                - *org3
+                - *org4
             Capabilities:
                 <<: *ApplicationCapabilities
