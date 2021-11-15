@@ -112,7 +112,7 @@ services:
 
   peer1-org1:
     container_name: peer1-org1
-    image: harrymknight/fabric-peer:latest
+    image: harrymknight/fabric-peer:2.3.3
     environment:
         - CORE_PEER_ID=peer1-org1
         - CORE_PEER_ADDRESS=peer1-org1:7051
@@ -173,7 +173,7 @@ services:
 
   peer1-org2:
     container_name: peer1-org2
-    image: harrymknight/fabric-peer:latest
+    image: harrymknight/fabric-peer:2.3.3
     environment:
         - CORE_PEER_ID=peer1-org2
         - CORE_PEER_ADDRESS=peer1-org2:7051
@@ -235,7 +235,7 @@ services:
 
   peer1-org3:
     container_name: peer1-org3
-    image: harrymknight/fabric-peer:latest
+    image: harrymknight/fabric-peer:2.3.3
     environment:
         - CORE_PEER_ID=peer1-org3
         - CORE_PEER_ADDRESS=peer1-org3:7051
@@ -298,7 +298,7 @@ services:
 
   peer1-org4:
     container_name: peer1-org4
-    image: harrymknight/fabric-peer:latest
+    image: harrymknight/fabric-peer:2.3.3
     environment:
         - CORE_PEER_ID=peer1-org4
         - CORE_PEER_ADDRESS=peer1-org4:7051
@@ -344,7 +344,7 @@ services:
 ################
   orderer1-org1:
     container_name: orderer1-org1
-    image: harrymknight/fabric-orderer:latest
+    image: harrymknight/fabric-orderer:2.3.3
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org1
@@ -357,7 +357,7 @@ services:
         - ORDERER_GENERAL_TLS_CERTIFICATE=/tmp/hyperledger/org1/orderer1/tls-msp/signcerts/cert.pem
         - ORDERER_GENERAL_TLS_PRIVATEKEY=/tmp/hyperledger/org1/orderer1/tls-msp/keystore/key.pem
         - ORDERER_GENERAL_TLS_ROOTCAS=[/tmp/hyperledger/org1/orderer1/tls-msp/tlscacerts/tls-0-0-0-0-7052.pem]
-        #- ORDERER_GENERAL_LOGLEVEL=error
+        - ORDERER_GENERAL_LOGLEVEL=DEBUG
         - ORDERER_DEBUG_BROADCASTTRACEDIR=data/logs
         - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/tmp/hyperledger/org1/orderer1/tls-msp/signcerts/cert.pem
         - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/tmp/hyperledger/org1/orderer1/tls-msp/keystore/key.pem
@@ -383,7 +383,7 @@ services:
 
   orderer1-org2:
     container_name: orderer1-org2
-    image: harrymknight/fabric-orderer:latest
+    image: harrymknight/fabric-orderer:2.3.3
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org2
@@ -422,7 +422,7 @@ services:
 
   orderer1-org3:
     container_name: orderer1-org3
-    image: harrymknight/fabric-orderer:latest
+    image: harrymknight/fabric-orderer:2.3.3
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org3
@@ -462,7 +462,7 @@ services:
 
   orderer1-org4:
     container_name: orderer1-org4
-    image: harrymknight/fabric-orderer:latest
+    image: harrymknight/fabric-orderer:2.3.3
     environment:
         - ORDERER_HOME=/tmp/hyperledger/orderer
         - ORDERER_HOST=orderer1-org4

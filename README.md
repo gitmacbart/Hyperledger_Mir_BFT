@@ -4,7 +4,7 @@
 
 # Hyperledger_External_Chaincode Lab
 ## Build the Network
-```
+```script
 cd hlf_network
 
 cp -R config /tmp/hyperledger/config/
@@ -18,8 +18,9 @@ docker-compose up -d peer1-org1 peer1-org2 orderer1-org1 orderer1-org2 couchdb0 
 ```
 
 ### use cli to generate genesys block
-```
-docker exec -it (cli container) /bin/sh
+
+```script
+docker exec -it cli /bin/sh
 
 source term-org1
 configtxgen -profile ${CHANNEL_PROFILE} -outputBlock ${CHANNEL_NAME}.block -channelID ${CHANNEL_NAME}

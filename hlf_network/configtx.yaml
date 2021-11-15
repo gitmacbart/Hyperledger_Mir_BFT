@@ -378,32 +378,6 @@ Channel: &ChannelDefaults
 ################################################################################
 Profiles:
 
-    OrgsOrdererGenesis:
-        <<: *ChannelDefaults
-        Orderer:
-            <<: *OrdererDefaults
-            Organizations:
-                - *org1
-                - *org2
-                - *org3
-            Capabilities:
-                <<: *OrdererCapabilities
-        Consortiums:
-            SampleConsortium:
-                Organizations:
-                    - *org1
-                    - *org2
-    OrgsChannel:
-        Consortium: SampleConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
-                - *org1
-                - *org2
-            Capabilities:
-                <<: *ApplicationCapabilities
-
     SampleAppChannelMirBFT:
         <<: *ChannelDefaults
         Orderer:
