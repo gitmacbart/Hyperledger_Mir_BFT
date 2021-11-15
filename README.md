@@ -42,13 +42,15 @@ Also for org3 and org4
 cd ../external_sacc
 tar cfz code.tar.gz connection.json
 tar cfz sacc_external.tgz metadata.json code.tar.gz
-
+```
+```
 source term-org1
 peer lifecycle chaincode install ../external_sacc/sacc_external.tgz
 
 source term-org2
 peer lifecycle chaincode install ../external_sacc/sacc_external.tgz
-
+```
+```
 source term-org1
 peer lifecycle chaincode approveformyorg --tls --cafile $ORDERER_CA -o localhost:7050 --channelID channel1 --name sacc --version 1 --init-required --sequence 1 --waitForEvent --package-id xxxxx (refer from previous install command)
 
